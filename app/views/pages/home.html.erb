@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Welcome Message With Signed in email -->
+<% if user_signed_in? %>
+  <h1>Welcome <%= current_user.email %></h1>
+  <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+<% else %>
+    <h1>Welcome to CourseFlix</h1>
+    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary btn-lg" %>
+<% end %>
